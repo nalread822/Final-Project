@@ -1,0 +1,838 @@
+/* variables */
+:root{
+    --primary: #c2dfb9;
+    --text: #393831;
+    --button1: #3b3b4f;
+    --button2: #cfcfcf;
+
+}
+
+/* reset */
+body,p,a,ul,li{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+li{
+    list-style-type: none;
+}
+
+/* base styles */
+body{
+    background: var(--primary);
+    font-family: 'Montserrat Regular';
+}
+
+/* button */
+.button{
+    background: var(--button1);
+    border: 2px solid var(--button2);
+    color: var(--button2);
+    padding: 6px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.6);
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.button:hover{
+    color: var(--button1);
+    background: var(--button2);
+}
+input,textarea{
+    background: rgba(255,255,255,0.05);
+    padding: 10px 16px;
+    border-radius: 20px;
+    border: 2px solid var(--button1);
+    color: var(--text);
+}
+
+/* end button */
+
+/* fonts */
+@font-face {
+    font-family: 'Montserrat Regular';
+    src: url('assets/Fonts/Montserrat/static/Montserrat-Regular.ttf');
+    line-height: 40px; /* Adjust the value as needed */
+    
+}
+
+h4 {
+    color: var(--text);
+    font-weight: bold;
+    font-size: 40px;
+}
+h3 {
+    color: var(--text);
+    font-weight: bold;
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 50px;
+    color: var(--text);
+    font-weight: bold;
+}
+
+p,a,li {
+    color: var(--button1);
+    font-weight: bold;
+    font-size: 25px;
+}
+
+/* Hero Image page 1 */
+
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Consider using min-height: 100vh; */
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border: none;
+}
+
+.prev {
+    left: 2%;
+}
+
+.next {
+    right: 2%;
+}
+
+.hero-slider img,
+.hero-slider video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-slider .slide.active .image-wrapper {
+    position: relative;
+}
+
+.hero-slider .slide.active .image-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.first-slide .text-box-container {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-40%, -50%);
+    max-width: 600px;
+    z-index: 2;
+}
+
+.first-slide .text-box {
+    background-color: rgba(120, 125, 129, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 15px solid #A2D1AB;
+    box-sizing: border-box;
+    padding: 50px;
+}
+
+.first-slide .text-box p {
+    color: #ffffff;
+    margin: 10px 0;
+    font-size: 3.0em;
+    text-align: center;
+}
+
+.first-slide .text-box .line3 {
+    color: #A2D1AB;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-slider {
+        height: 60vh; /* Or min-height: 60vh; */
+    }
+
+    .first-slide .text-box-container {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .first-slide .text-box {
+        padding: 30px; /* Adjusted padding */
+    }
+
+    .first-slide .text-box p {
+        font-size: 2.5em;
+    }
+
+    .prev {
+        left: 1%;
+    }
+
+    .next {
+        right: 1%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-slider {
+        height: 40vh; /* Or min-height: 40vh; */
+    }
+
+    .first-slide .text-box-container {
+        width: 95%;
+        max-width: 320px;
+    }
+
+    .first-slide .text-box {
+        padding: 20px; /* Adjusted padding */
+    }
+
+    .first-slide .text-box p {
+        font-size: 1.8em;
+    }
+}
+
+/* End Hero Image pg 1 */
+
+
+hr {
+    border: 1px solid #3b3b4f;
+    width: 80%; /* 80% width of its container */
+    margin: 60px auto;                                                    
+}
+
+/* Hero Image 2 */
+
+.hero-image-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-image-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Adjust the alpha value for darkness */
+    z-index: 0; /* Place overlay below text */
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Place image below overlay */
+}
+
+.hero-text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+
+.hero-text {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+.hero-text p {
+    margin: 10px 0;
+    font-size: 3em;
+    color: white;
+}
+
+.hero-text .hero-subtext {
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-text p {
+        font-size: 1.8em;
+    }
+
+    .hero-subtext {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text p {
+        font-size: 1.5em;
+    }
+
+    .hero-subtext {
+        font-size: 1.1em;
+    }
+}
+
+/*End Hero page 2 */
+
+/* Top Navigation Bar */
+
+
+
+nav.site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(239, 239, 239, 1.0);
+    color: white;
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+nav.site-nav h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+nav.site-nav ul li {
+    border-bottom: 5px solid #c2dfb9;
+}
+
+
+nav.site-nav h1 a {
+    color: #393831;
+    text-decoration: none;
+}
+
+nav.site-nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    white-space: nowrap;
+}
+
+nav.site-nav li {
+    margin-left: 15px;
+}
+
+nav.site-nav a {
+    color: #393831;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease; /* Add transition for color */
+}
+
+/* Move the rule to the bottom */
+nav.site-nav a:hover {
+    color: #8d77ab; /* Change color on hover */
+    transform: scale(1.1);
+}
+
+
+/* Hamburger Button Styles */
+.hamburger {
+    background: none;
+    border: none;
+    color: #393831;
+    font-size: 1.5em;
+    cursor: pointer;
+    display: none;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+
+@media (max-width: 768px) {
+    nav.site-nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #363831
+    }
+
+    nav.site-nav ul.active {
+        display: flex;
+    }
+
+    nav.site-nav li {
+        margin: 0;
+        padding: 10px 20px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+nav.site-nav ul.active li a {
+    color: white;
+}
+
+/* End Top Menu Nav */
+
+/* Combined About Me and Then and Now Section */
+#combined-about-then {
+    padding: 20px;
+}
+
+#combined-about-then .combined-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+#combined-about-then img {
+    width: 800px;
+    height: 600px;
+    display: block;
+    margin: 0 auto 10px auto; /* Center image, add bottom margin */
+    padding-top: 50px;
+}
+
+#combined-about-then figcaption {
+    font-size: 0.9em;
+    text-align: center;
+    color: #393831;
+    margin-bottom: 50px;
+}
+
+#combined-about-then .About-Me-text {
+    text-align: left;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px; /*Keep the padding on the parent*/
+    grid-column: 1/5;
+    grid-row: 1 / 2;
+}
+
+#combined-about-then .About-Me-text .paragraph-wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#combined-about-then .About-Me h2 {
+    color: #3b3b4f;
+    margin-bottom: 25px;
+}
+
+#combined-about-then .About-Me p {
+    line-height: 1.6;
+    color: #333;
+}
+
+#combined-about-then .About-Me .button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    grid-column: 2 / 3; /*Changed to place the button in the right column*/
+    grid-row: 2 / 3; /*changed to place the button in the second row*/
+}
+
+#combined-about-then .About-Me .button {
+    width: fit-content;
+    margin-bottom: 50px;
+}
+#combined-about-then .text-and-button {
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+    justify-self: center; /* Add this line to center the button horizontally */
+}
+
+#combined-about-then .text-and-button p {
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#combined-about-then .text-and-button .button {
+    text-align: center;
+    margin: 20px auto;
+    width: fit-content;
+}
+#combined-about-then .combined-grid {
+    display: grid;
+    grid-template-columns: 1fr auto; /* Change from 1fr 1fr to 1fr auto */
+    gap: 20px;
+    align-items: start;
+}
+
+/* Media Queries for Responsiveness */
+@media (min-width: 768px) {
+    #combined-about-then .About-Me-text {
+        text-align: justify;
+    }
+
+    #combined-about-then .About-Me-text .paragraph-wrapper {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #combined-about-then .About-Me-text .paragraph-wrapper {
+        padding-left: 250px;
+        padding-right: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    #combined-about-then .combined-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #combined-about-then .text-and-button p {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    #combined-about-then .text-and-button .button {
+        margin: 20px auto;
+    }
+}
+/* End Combined Section */
+
+
+/* My Journey */
+#My-Journey {
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    align-items: center; /* Center horizontally */
+    margin: 0 auto; /* Center the #My-Journey section */
+    padding: 0 20px;
+    box-sizing: border-box;
+    max-width: 80%; /* Match the width of the paragraph */
+    width: 100%;
+}
+
+.module-item {
+    display: flex;
+    flex-direction: column; /* Stack image and paragraph vertically */
+    align-items: center; /* Center the content horizontally */
+    box-sizing: border-box;
+    padding-bottom: 40px;
+    padding-top: 20px;
+    width: 100%; /* Or set a specific width if needed */
+}
+
+.module-item p {
+    text-align: center; /* Center the text within the paragraph */
+    /* ... other styles for the paragraph ... */
+    width: 100%; /* Make the paragraph take the full width of its container */
+    max-width: 800px; /* Limit the maximum width of the paragraph */
+    margin-left: auto; /* Add automatic left and right margins to center the paragraph */
+    margin-right: auto;
+    padding-top: 20px;
+}
+
+.module-number {
+    display: block; 
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: var(--button1); /* Or any color you prefer */
+    font-weight: bold;
+    margin-top: 20px;
+    position: relative;
+}
+
+
+.module-number::after {
+    content: ""; /* Required for pseudo-elements */
+    display: block;
+    width: 800px;
+    height: 2px; /* Adjust the thickness as needed */
+    background-color: var(--text); /* Or any color you prefer */
+    margin: 10px auto 0; /* Adjust spacing as needed */
+    padding-bottom: 2px;
+}
+
+
+.module-item a {
+    flex-shrink: 0;
+    text-align: center; /* Center the text within the paragraph */
+}
+
+
+.My-Journey a {
+    text-align: center;
+    padding-top: 15px;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+    background-color: var(--button2);
+    margin-bottom: 0;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 300px;
+    height: 300px;
+}
+
+.My-Journey .journey-image {
+    max-width: 180px;
+    transition: transform 0.3s ease;
+    vertical-align: top;
+}
+
+.My-Journey a:hover .journey-image {
+    transform: scale(1.05);
+}
+
+
+/* My Journey Section Headings */
+#My-Journey-Wrapper h2 {
+    font-size: 3em;
+    color: var(--button1);
+    font-weight: bold;
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 50px;
+}
+
+#My-Journey .module-item h4 {
+    color: #666;
+    font-weight: bold;
+    text-align: center;
+    font-size: 22px;
+}
+
+#My-Journey .module-item p {
+    font-size: 25px;
+    color: #666;
+    font-weight: bold;
+    text-align: left;
+}
+
+#My-Journey-Wrapper .heading-and-description h4 {
+    font-size: 30px;
+    text-align: left;
+    padding: 0 20px;
+}
+
+/* Call to Action */
+.call-to-action {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+.join-now-button {
+    background: var(--button1);
+    border: 2px solid var(--button2);
+    color: var(--button2);
+    padding: 15px 20px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.6);
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+/* Optional: Add hover effect */
+.join-now-button:hover {
+    color: var(--button1);
+    background: var(--button2);
+}
+  
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .module-item {
+        max-width: 100%; /* Make module items full width on mobile */
+    }
+
+    .module-number::after {
+        width: 90%; /* Adjust line width for smaller screens */
+    }
+}
+/* Footer */
+
+footer {
+    background-color: #f0f0f0;
+    padding: 40px 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.copyright a { /* Select the link inside the copyright paragraph */
+    transition: background-color 0.3s ease; /* Add a smooth transition for the background color */
+  }
+  
+  .copyright a:hover {
+        color: black;
+    }
+
+.contact-form-container h3,
+.site-map h4 {
+    margin-bottom: 15px;
+}
+
+.contact-form-wrapper form {
+    display: grid;
+    gap: 10px;
+}
+
+.contact-form-wrapper input,
+.contact-form-wrapper button {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.contact-form-wrapper button {
+    width: fit-content;
+    padding: 10px 15px;
+}
+
+.site-map ul {
+    list-style: none;
+    padding: 0;
+}
+
+.site-map li {
+    margin-bottom: 5px;
+}
+
+.site-map a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.site-map a:hover {
+    color: black;
+}
+
+.site-map {
+    padding-left: 50px;
+}
+
+.copyright-social {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    grid-column: 1 / 2; /* Place in the first column */
+    grid-row: 1 / 2; /* Place in the first row */
+    margin-top: 20px; /* Add margin to move up */
+    margin-left: 20px; /* Add margin to move right */
+}
+
+.social {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.social li {
+    margin: 0 10px;
+}
+
+.social img {
+    width: 30px;
+    height: 30px;
+}
+
+.contact-form-container .leading {
+    margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social {
+        justify-content: center;
+    }
+
+}
+/* End Footer */
+    
+/* large tablets & laptop styles */
+@media screen and (min-width: 960px){
+
+    body{
+        font-size: 18px;
+    }
+    
+}
+
+/* desktop styles */
+@media screen and (min-width: 1200px){
+
+    body{
+        font-size:20px;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .hero-image-container {
+        height: 60vh; /* Adjust for smaller screens */
+    }
+    .hero-image img {
+        object-position: center top;
+    }
+}
+
+
