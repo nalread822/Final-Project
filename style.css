@@ -82,13 +82,19 @@ p,a,li {
 }
 
 /* Hero Image page 1 */
-
+.hero-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 100%; /* Added max-width */
+}
 .hero-slider {
     position: relative;
     width: 100%;
-    height: 100vh; /* Consider using min-height: 100vh; */
+    min-height: 100vh; /* Changed to min-height */
     overflow: hidden;
 }
+
 
 .slide {
     position: absolute;
@@ -151,7 +157,7 @@ p,a,li {
     top: 50%;
     left: 60%;
     transform: translate(-40%, -50%);
-    max-width: 600px;
+    max-width:400px;
     z-index: 2;
 }
 
@@ -169,7 +175,7 @@ p,a,li {
 .first-slide .text-box p {
     color: #ffffff;
     margin: 10px 0;
-    font-size: 3.0em;
+    font-size: 2.0em;
     text-align: center;
 }
 
@@ -179,50 +185,79 @@ p,a,li {
     white-space: nowrap;
 }
 
-/* Responsive Adjustments */
+/*Responsive Design */
+
 @media (max-width: 768px) {
     .hero-slider {
-        height: 60vh; /* Or min-height: 60vh; */
+        min-height: 60vh;
+    }
+    .hero-slider img {
+        object-position: top center;
     }
 
     .first-slide .text-box-container {
-        width: 90%;
-        max-width: 400px;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
-    .first-slide .text-box {
-        padding: 30px; /* Adjusted padding */
+    .first-slide .text-box-container {
+        max-width: 300px;
     }
 
-    .first-slide .text-box p {
-        font-size: 2.5em;
-    }
-
-    .prev {
-        left: 1%;
-    }
-
-    .next {
-        right: 1%;
+    /* Adjust button styles if needed */
+    .first-slide .text-box-container .button {
+        width: 80%;
+        text-align: center;
+        margin: 5px auto;
     }
 }
 
+    /* Make the text box smaller */
+    .first-slide .text-box {
+        padding: 30px; /* Reduce padding */
+        border-width: 10px; /* Reduce border width */
+    }
+
+    /* Make the paragraphs smaller */
+    .first-slide .text-box p {
+        font-size: 2.0em; /* Reduce font size */
+        margin: 5px 0; /* Reduce margin */
+    }
+
+    /* Make the button smaller */
+    .first-slide .text-box .button {
+        font-size: 0.9em; /* Reduce font size */
+        padding: 8px 16px; /* Reduce padding */
+    }
+
+
 @media (max-width: 480px) {
     .hero-slider {
-        height: 40vh; /* Or min-height: 40vh; */
+        min-height: 40vh;
     }
-
+    .hero-slider img {
+        object-position: center;
+    }
     .first-slide .text-box-container {
-        width: 95%;
-        max-width: 320px;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
-
+    .first-slide .text-box-container .button {
+        font-size: 0.8em;
+        padding: 6px 12px;
+    }
     .first-slide .text-box {
-        padding: 20px; /* Adjusted padding */
+        padding: 20px;
+        border-width: 8px;
     }
-
+    
     .first-slide .text-box p {
-        font-size: 1.8em;
+        font-size: 1.5em;
+    }
+    
+    .first-slide .text-box .button {
+        font-size: 0.8em;
+        padding: 6px 12px;
     }
 }
 
@@ -434,8 +469,8 @@ nav.site-nav ul.active li a {
 }
 
 #combined-about-then img {
-    width: 800px;
-    height: 600px;
+    max-width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
     display: block;
     margin: 0 auto 10px auto; /* Center image, add bottom margin */
     padding-top: 50px;
